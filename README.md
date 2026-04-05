@@ -3,6 +3,10 @@
 [![npm version](https://img.shields.io/npm/v/@rendoc/mcp-server.svg)](https://www.npmjs.com/package/@rendoc/mcp-server)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+<a href="https://glama.ai/mcp/servers/@yoryocoruxo-ai/rendoc-mcp-server">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@yoryocoruxo-ai/rendoc-mcp-server/badge" alt="rendoc MCP server" />
+</a>
+
 The rendoc MCP server lets AI assistants like Claude, Cursor, and other MCP-compatible tools generate professional PDF documents. Connect your AI assistant to rendoc and it can create invoices, contracts, reports, certificates, and any other PDF from templates or inline HTML markup.
 
 ## Quick Setup for Claude Desktop
