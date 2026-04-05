@@ -1,0 +1,50 @@
+{
+  "name": "@rendoc/mcp-server",
+  "version": "1.0.4",
+  "type": "module",
+  "description": "rendoc MCP Server - Generate PDFs from Claude, Cursor, and other AI tools",
+  "bin": {
+    "rendoc-mcp": "dist/index.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yoryocoruxo-ai/rendoc-mcp-server.git"
+  },
+  "homepage": "https://github.com/yoryocoruxo-ai/rendoc-mcp-server#readme",
+  "bugs": {
+    "url": "https://github.com/yoryocoruxo-ai/rendoc-mcp-server/issues"
+  },
+  "author": "rendoc",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "npx tsx src/index.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "pdf",
+    "rendoc",
+    "claude",
+    "ai"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.27.1",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
