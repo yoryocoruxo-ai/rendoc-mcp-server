@@ -32,26 +32,49 @@ interface ApiSuccessResponse {
 
 type ApiResponse = ApiErrorResponse | ApiSuccessResponse;
 
+// rendoc API response envelope: { data: ... } on success, { error: { code, message, ... } } on failure.
+// The MCP server wraps that into the internal { success, data } | { success, error } shape used by the tool handlers.
 async function apiRequest(path: string, options: RequestInit = {}): Promise<ApiResponse> {
-  const res = await fetch(`${API_BASE}${path}`, {
-    ...options,
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${API_KEY}`,
-      "User-Agent": `rendoc-mcp/${getVersion()}`,
-      ...options.headers,
-    },
-  });
-
-  if (!res.ok) {
-    const text = await res.text().catch(() => "Unknown error");
+  let res: Response;
+  try {
+    res = await fetch(`${API_BASE}${path}`, {
+      ...options,
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${API_KEY}`,
+        "User-Agent": `rendoc-mcp/${getVersion()}`,
+        ...options.headers,
+      },
+    });
+  } catch (err) {
     return {
       success: false,
-      error: { message: `HTTP ${res.status}: ${text}` },
+      error: { message: `Network error: ${err instanceof Error ? err.message : String(err)}` },
     };
   }
 
-  return res.json() as Promise<ApiResponse>;
+  let body: unknown = null;
+  try {
+    body = await res.json();
+  } catch {
+    // Non-JSON body (unusual for rendoc API, but guard against it)
+  }
+
+  const bodyObj = (body && typeof body === "object" ? body : {}) as Record<string, unknown>;
+
+  // Error case: non-2xx or body contains an "error" field.
+  if (!res.ok || "error" in bodyObj) {
+    const errField = bodyObj.error as { message?: string; code?: string } | undefined;
+    const message = errField?.message ?? `HTTP ${res.status} ${res.statusText || ""}`.trim();
+    return {
+      success: false,
+      error: { message },
+    };
+  }
+
+  // Success case: unwrap "data" if present, otherwise treat whole body as data.
+  const data = (bodyObj.data ?? bodyObj) as Record<string, unknown>;
+  return { success: true, data };
 }
 
 function errorText(result: ApiErrorResponse, fallback: string): { content: Array<{ type: "text"; text: string }> } {
