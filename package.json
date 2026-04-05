@@ -1,6 +1,6 @@
 {
   "name": "@rendoc/mcp-server",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "type": "module",
   "description": "rendoc MCP Server - Generate PDFs from Claude, Cursor, and other AI tools",
   "bin": {
@@ -42,6 +42,7 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
+    "@types/node": "^20.0.0",
     "typescript": "^5.0.0"
   },
   "engines": {
