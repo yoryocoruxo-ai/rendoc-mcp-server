@@ -147,7 +147,7 @@ The MCP server translates natural language tool calls from your AI assistant int
 
 Contributions are welcome. See [CONTRIBUTING.md](./CONTRIBUTING.md) for development setup and PR guidelines.
 
-For security issues, please see [SECURITY.md](./SECURITY.md) and email `security@rendoc.dev` — do not open a public issue.
+For security issues, please see [SECURITY.md](./SECURITY.md) and email `info@rendoc.dev` — do not open a public issue.
 
 ## Links
 

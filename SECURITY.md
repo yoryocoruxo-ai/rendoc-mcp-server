@@ -6,7 +6,7 @@ If you discover a security vulnerability in the rendoc MCP server, please **do n
 
 ### How to report
 
-- **Email**: security@rendoc.dev
+- **Email**: info@rendoc.dev
 - **Subject**: `[Security] rendoc MCP server — <short summary>`
 
 Please include:
