@@ -1,0 +1,16 @@
+node_modules
+dist
+.git
+.github
+*.log
+.env
+.env.local
+.mcpregistry_github_token
+.mcpregistry_registry_token
+examples
+README.md
+CONTRIBUTING.md
+SECURITY.md
+LICENSE
+glama.json
+server.json
