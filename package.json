@@ -1,7 +1,8 @@
 {
   "name": "@rendoc/mcp-server",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "type": "module",
+  "mcpName": "io.github.yoryocoruxo-ai/rendoc-mcp-server",
   "description": "rendoc MCP Server - Generate PDFs from Claude, Cursor, and other AI tools",
   "bin": {
     "rendoc-mcp": "dist/index.js"

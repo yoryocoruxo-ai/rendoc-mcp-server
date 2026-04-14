@@ -1,0 +1,28 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.yoryocoruxo-ai/rendoc-mcp-server",
+  "description": "Generate professional PDFs (invoices, contracts, reports) from AI tools via rendoc templates.",
+  "repository": {
+    "url": "https://github.com/yoryocoruxo-ai/rendoc-mcp-server",
+    "source": "github"
+  },
+  "version": "1.0.9",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@rendoc/mcp-server",
+      "version": "1.0.9",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "RENDOC_API_KEY",
+          "description": "Your rendoc API key from https://rendoc.dev/dashboard",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}
